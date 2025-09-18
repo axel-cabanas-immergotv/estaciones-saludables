@@ -1,0 +1,43 @@
+/* Posts Reel Block Styles */
+.posts-reel-block {
+  background: white;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+}
+
+.posts-reel-block.editing {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.posts-reel-block .posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.posts-reel-block .post-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+/* Responsive Design for Posts Reel Block */
+@media (max-width: 768px) {
+  .posts-reel-block {
+    padding: 12px;
+  }
+  
+  .posts-reel-block .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .posts-reel-block .post-card {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,36 @@
+.custom-table-container {
+    width: 100%;
+}
+
+.custom-table-container .table {
+    margin-bottom: 0;
+}
+
+.custom-table-container .table th {
+    border-top: none;
+    font-weight: 600;
+}
+
+.custom-table-container .table td {
+    vertical-align: middle;
+}
+
+.custom-table-container .btn-group .btn {
+    margin-right: 2px;
+}
+
+.custom-table-container .btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+.custom-table-container .badge {
+    font-size: 0.75em;
+}
+
+.custom-table-container .pagination {
+    margin-bottom: 0;
+}
+
+.custom-table-container .form-select-sm {
+    min-width: 80px;
+}

@@ -1,0 +1,627 @@
+/* DynamicPage Component Styles - Fullscreen Editor */
+
+.page-editor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Editor Header */
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    min-height: 70px;
+}
+
+.editor-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.editor-back-btn {
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    background: none;
+    padding: 0.5rem 0;
+}
+
+.editor-back-btn:hover {
+    color: #495057;
+}
+
+.editor-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+.editor-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.editor-header-right .form-select {
+    min-width: 120px;
+}
+
+/* Editor Layout */
+.editor-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.editor-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.editor-sidebar {
+    width: 300px;
+    background: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+/* Page Title Section */
+.page-title-section {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.page-title-section input {
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.page-title-section input:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Page Content Section */
+.page-content-section {
+    flex: 1;
+    padding: 2rem;
+    min-height: 0; /* Important for flex child */
+}
+
+/* Editor Field Specific Styles */
+.editor-field {
+    width: 100%;
+    min-height: 400px;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.editor-field .editorjs-wrapper {
+    min-height: 400px;
+    border: none;
+    border-radius: 0;
+}
+
+.editor-field .editorjs-holder {
+    padding: 20px;
+    min-height: 400px;
+}
+
+/* Custom Editor Styles for DynamicPage */
+.dynamic-page-editor .editorjs-holder .codex-editor {
+    padding: 0;
+    border: none;
+}
+
+.dynamic-page-editor .editorjs-holder .codex-editor__redactor {
+    padding: 0 !important;
+}
+
+.dynamic-page-editor .editorjs-holder .ce-block__content {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dynamic-page-editor .editorjs-holder .ce-block {
+    padding: 12px 0;
+    margin: 0;
+}
+
+.dynamic-page-editor .editorjs-holder .ce-paragraph {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #374151;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.dynamic-page-editor .editorjs-holder .ce-header {
+    margin: 20px 0 12px 0;
+    color: #1f2937;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Toolbar positioning for DynamicPage */
+.dynamic-page-editor .editorjs-holder .ce-toolbar {
+    margin-left: -45px;
+}
+
+.dynamic-page-editor .editorjs-holder .ce-block--focused .ce-toolbar,
+.dynamic-page-editor .editorjs-holder .ce-block:hover .ce-toolbar {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Visual Editor styles */
+.visual-editor {
+    min-height: 400px;
+    width: 100%;
+}
+
+/* Sidebar Panel */
+.sidebar-panel {
+    padding: 1.5rem;
+}
+
+.panel-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.panel-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.panel-title {
+    color: #6c757d;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    color: #495057;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control, .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #007cba;
+    box-shadow: 0 0 0 0.2rem rgba(0, 124, 186, 0.25);
+    outline: 0;
+}
+
+.form-control.is-invalid, .form-select.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 11px;
+    margin-top: 0.25rem;
+}
+
+.form-text {
+    color: #6c757d;
+    font-size: 11px;
+    margin-top: 0.25rem;
+}
+
+/* Textarea específico para CSS */
+.form-control[style*="monospace"] {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    font-family: 'Courier New', Consolas, monospace !important;
+    font-size: 12px !important;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+/* Checkbox styling */
+.form-check {
+    padding: 0.5rem 0;
+}
+
+.form-check-input {
+    margin-top: 0.125rem;
+}
+
+.form-check-label {
+    color: #495057;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Editor Container - Legacy support */
+.editor-container {
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    min-height: 200px;
+    background: #fff;
+}
+
+.editor-container .codex-editor {
+    padding: 1rem;
+}
+
+.editor-container .codex-editor__redactor {
+    padding-bottom: 0 !important;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #007cba;
+    border-color: #007cba;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #005a87;
+    border-color: #005a87;
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transform: none;
+}
+
+.btn-link {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #495057;
+    text-decoration: none;
+}
+
+/* Loading states */
+.spinner-border-sm {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .editor-layout {
+        flex-direction: column;
+    }
+    
+    .editor-sidebar {
+        width: 100%;
+        max-height: 40vh;
+        border-left: none;
+        border-top: 1px solid #dee2e6;
+    }
+    
+    .editor-header {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .editor-header-right {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .page-content-section {
+        padding: 1rem;
+    }
+    
+    .sidebar-panel {
+        padding: 1rem;
+    }
+    
+    .editor-field {
+        min-height: 300px;
+    }
+    
+    .editor-field .editorjs-holder {
+        padding: 15px;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .editor-title {
+        font-size: 1.25rem;
+    }
+    
+    .page-title-section input {
+        font-size: 1.75rem !important;
+    }
+    
+    .editor-header-right .form-select {
+        min-width: 100px;
+        font-size: 12px;
+    }
+    
+    .btn {
+        font-size: 12px;
+        padding: 0.375rem 0.75rem;
+    }
+    
+    .dynamic-page-editor .editorjs-holder .ce-toolbar {
+        margin-left: -35px;
+    }
+    
+    .editor-field {
+        min-height: 250px;
+    }
+}
+
+/* Dark mode support (if needed) */
+/* @media (prefers-color-scheme: dark) {
+    .page-editor-container {
+        background: #1a1a1a;
+        color: #e9ecef;
+    }
+    
+    .editor-header {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .editor-sidebar {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .form-control, .form-select {
+        background-color: #374151;
+        border-color: #4b5563;
+        color: #e5e7eb;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        background-color: #374151;
+        border-color: #007cba;
+    }
+    
+    .editor-field {
+        background: #374151;
+        border-color: #4b5563;
+    }
+} */
+
+/* Override Bootstrap focus states */
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 124, 186, 0.25) !important;
+    border-color: #007cba !important;
+}
+
+/* Ensure proper scrolling */
+.editor-main::-webkit-scrollbar,
+.editor-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.editor-main::-webkit-scrollbar-track,
+.editor-sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.editor-main::-webkit-scrollbar-thumb,
+.editor-sidebar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.editor-main::-webkit-scrollbar-thumb:hover,
+.editor-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+} 
+
+/* Skeleton Loading Styles */
+.skeleton-input {
+    margin-bottom: 1rem;
+}
+
+.skeleton-label {
+    height: 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    width: 60%;
+}
+
+.skeleton-field {
+    height: 38px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.skeleton-textarea {
+    height: 80px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.skeleton-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skeleton-checkbox-input {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 3px;
+}
+
+.skeleton-checkbox-label {
+    height: 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 120px;
+}
+
+.skeleton-editor {
+    height: 300px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.skeleton-title {
+    height: 60px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 80%;
+}
+
+.skeleton-header-title {
+    height: 32px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.skeleton-status-selector {
+    height: 38px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+    width: 120px;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* WebsiteBuilder Integration Styles */
+.website-builder-field {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.website-builder-field .website-builder {
+    height: 100%;
+    padding: 0;
+}
+
+.website-builder-field .builder-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.website-builder-field .builder-content {
+    height: calc(100% - 80px);
+    overflow: hidden;
+}
+
+.website-builder-field .canvas {
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.website-builder-field .canvas > div {
+    height: 100%;
+    min-height: 600px;
+}
+
+/* Hide WebsiteBuilder save button since we handle save in DynamicPage */
+.website-builder-field .builder-header .ant-btn[type="primary"] {
+    display: none;
+}
+
+/* Adjust block styles for DynamicPage integration */
+.website-builder-field .block-container {
+    margin: 4px 0;
+}
+
+.website-builder-field .block-header {
+    background: #f0f2f5;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.website-builder-field .settings-panel {
+    margin: 8px 0;
+} 

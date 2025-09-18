@@ -1,0 +1,683 @@
+/* Admin variables */
+:root {
+    --admin-primary: #0073aa;
+    --admin-secondary: #00a0d2;
+    --admin-success: #46b450;
+    --admin-warning: #ffb900;
+    --admin-danger: #dc3232;
+    --admin-dark: #23282d;
+    --admin-light: #f1f1f1;
+    --admin-sidebar-bg: #23282d;
+    --admin-sidebar-text: #a7aaad;
+    --admin-sidebar-hover: #191e23;
+    --admin-content-bg: #f1f1f1;
+    --sidebar-width: 280px;
+    --topbar-height: 56px;
+}
+
+/* User Profile Card */
+.user-profile-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile-header {
+    background: #f8f9fa;
+    color: #212529;
+    padding: 30px 25px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.user-avatar {
+    margin-bottom: 20px;
+}
+
+.avatar-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #e9ecef;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #e9ecef;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.avatar-placeholder i {
+    font-size: 3rem;
+    color: #6c757d;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #212529;
+}
+
+.user-role {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.user-email {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.user-profile-body {
+    padding: 25px;
+    flex: 1;
+}
+
+/* Content Header with Button */
+.content-header {
+    margin-bottom: 2rem;
+}
+
+.content-header .btn-primary {
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.content-header .btn-primary:hover {
+    background: #005177;
+    border-color: #005177;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-header .btn-primary:disabled {
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+.content-header .btn-primary i {
+    margin-right: 8px;
+}
+
+/* Org Chart Card */
+.org-chart-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.org-chart-header {
+    background: #f8f9fa;
+    padding: 25px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.org-chart-header h4 {
+    color: #212529;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.org-chart-body {
+    flex: 1;
+    padding: 0;
+    position: relative;
+}
+
+.no-team-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.no-team-data h5 {
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .user-profile-card,
+    .org-chart-card {
+        margin-bottom: 20px;
+    }
+    
+    .user-profile-header {
+        padding: 20px 15px;
+    }
+    
+    .user-profile-body {
+        padding: 20px;
+    }
+    
+    .org-chart-header {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .user-name {
+        font-size: 1.3rem;
+    }
+    
+    .user-role {
+        font-size: 0.9rem;
+    }
+    
+    .avatar-image,
+    .avatar-placeholder {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .avatar-placeholder i {
+        font-size: 2.5rem;
+    }
+
+    /* Metrics responsive adjustments */
+    .metric-card {
+        padding: 20px 15px;
+        margin-bottom: 15px;
+    }
+
+    .metric-number {
+        font-size: 2rem;
+    }
+
+    .metric-icon i {
+        font-size: 2rem;
+    }
+
+    .metric-detail-number {
+        font-size: 2.5rem;
+    }
+
+    .metrics-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Content section adjustments */
+.content-section {
+    padding: 2vw;
+}
+
+.content-header {
+    margin-bottom: 30px;
+}
+
+.content-header h1 {
+    color: #212529;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.content-header p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+/* Metrics Section */
+.metrics-title {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--admin-primary);
+    padding-bottom: 10px;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.metric-card:hover::before {
+    opacity: 1;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.metric-icon {
+    margin-bottom: 15px;
+}
+
+.metric-icon i {
+    font-size: 2.5rem;
+    opacity: 0.9;
+}
+
+.metric-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Specific metric card colors */
+.total-schools {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.with-fiscal-general {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.total-mesas {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.with-fiscal-mesa {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Metric Detail Cards */
+.metric-detail-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.metric-detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.metric-detail-header {
+    background: #f8f9fa;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+}
+
+.metric-detail-header h5 {
+    color: #495057;
+    font-weight: 600;
+    margin: 0;
+}
+
+.metric-detail-body {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.metric-detail-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #dc3545;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.metric-detail-description {
+    color: #6c757d;
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Row spacing */
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-lg-4,
+.col-lg-8,
+.col-md-12,
+.col-lg-3,
+.col-lg-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Coordinator Section - Enhanced Design */
+.coordinator-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.coordinator-section:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Enhanced Header */
+.coordinator-header-enhanced {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    position: relative;
+}
+
+.coordinator-icon {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+}
+
+.coordinator-icon i {
+    font-size: 1.2rem;
+}
+
+.coordinator-title {
+    color: #212529;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Profile Layout */
+.coordinator-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.coordinator-avatar {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+    flex-shrink: 0;
+}
+
+.coordinator-avatar i {
+    font-size: 1.5rem;
+}
+
+.coordinator-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.coordinator-name-enhanced {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.coordinator-role-enhanced {
+    font-size: 0.95rem;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.coordinator-role-enhanced i {
+    color: #007bff;
+}
+
+/* Contact Information */
+.coordinator-contact-enhanced {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+}
+
+.contact-email i {
+    color: #007bff;
+    width: 18px;
+}
+
+/* Enhanced WhatsApp Button */
+.whatsapp-button-enhanced {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-button-enhanced:hover {
+    background: linear-gradient(135deg, #128c7e, #0f6b5c);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.whatsapp-button-enhanced:hover::before {
+    left: 100%;
+}
+
+.whatsapp-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.whatsapp-icon i {
+    font-size: 1.2rem;
+}
+
+.whatsapp-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.whatsapp-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.whatsapp-number {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 767.98px) {
+    .coordinator-section {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    
+    .coordinator-header-enhanced {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+    
+    .coordinator-icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .coordinator-icon i {
+        font-size: 1rem;
+    }
+    
+    .coordinator-title {
+        font-size: 1.1rem;
+    }
+    
+    .coordinator-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .coordinator-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .coordinator-avatar i {
+        font-size: 1.3rem;
+    }
+    
+    .coordinator-name-enhanced {
+        font-size: 1.2rem;
+    }
+    
+    .coordinator-role-enhanced {
+        font-size: 0.9rem;
+        justify-content: center;
+    }
+    
+    .contact-email {
+        justify-content: center;
+        font-size: 0.85rem;
+    }
+    
+    .whatsapp-button-enhanced {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .whatsapp-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .whatsapp-icon i {
+        font-size: 1rem;
+    }
+    
+    .whatsapp-label {
+        font-size: 0.8rem;
+    }
+    
+    .whatsapp-number {
+        font-size: 0.95rem;
+    }
+}

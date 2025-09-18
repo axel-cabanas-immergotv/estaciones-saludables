@@ -1,0 +1,30 @@
+/* Image Block Styles */
+.image-block {
+  background: white;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  text-align: center;
+}
+
+.image-block.editing {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.image-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Responsive Design for Image Block */
+@media (max-width: 768px) {
+  .image-block {
+    padding: 12px;
+  }
+  
+  .image-block img {
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,289 @@
+/* Badge Component Styles */
+
+/* Base badge styles */
+.badge {
+    user-select: none;
+}
+
+/* Size variants */
+.badge-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.badge-md {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem !important;
+}
+
+.badge-lg {
+    padding: 0.5rem 1rem;
+    font-size: .875rem !important;
+}
+
+/* Color variants */
+.badge-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.badge-success {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.badge-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.badge-warning {
+    color: #000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.badge-info {
+    color: #fff;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+}
+
+.badge-light {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.badge-dark {
+    color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+}
+
+/* Outline variants */
+.badge-outline-primary {
+    color: #0d6efd;
+    background-color: transparent;
+    border-color: #0d6efd;
+}
+
+.badge-outline-secondary {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: #6c757d;
+}
+
+.badge-outline-success {
+    color: #198754;
+    background-color: transparent;
+    border-color: #198754;
+}
+
+.badge-outline-danger {
+    color: #dc3545;
+    background-color: transparent;
+    border-color: #dc3545;
+}
+
+.badge-outline-warning {
+    color: #ffc107;
+    background-color: transparent;
+    border-color: #ffc107;
+}
+
+.badge-outline-info {
+    color: #0dcaf0;
+    background-color: transparent;
+    border-color: #0dcaf0;
+}
+
+.badge-outline-light {
+    color: #f8f9fa;
+    background-color: transparent;
+    border-color: #f8f9fa;
+}
+
+.badge-outline-dark {
+    color: #212529;
+    background-color: transparent;
+    border-color: #212529;
+}
+
+/* Shape variants */
+.badge-rounded {
+    border-radius: 0.375rem;
+}
+
+.badge-square {
+    border-radius: 0;
+}
+
+/* Clickable badge styles */
+.badge-clickable {
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.badge-clickable:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.badge-clickable:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+.badge-clickable:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effects for different variants */
+.badge-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.badge-secondary:hover {
+    background-color: #5c636a;
+    border-color: #565e64;
+}
+
+.badge-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+.badge-danger:hover {
+    background-color: #bb2d3b;
+    border-color: #b02a37;
+}
+
+.badge-warning:hover {
+    background-color: #ffca2c;
+    border-color: #ffc720;
+}
+
+.badge-info:hover {
+    background-color: #3dd5f3;
+    border-color: #25cff2;
+}
+
+.badge-light:hover {
+    background-color: #e9ecef;
+    border-color: #e2e6ea;
+}
+
+.badge-dark:hover {
+    background-color: #1a1d20;
+    border-color: #171a1d;
+}
+
+/* Outline hover effects */
+.badge-outline-primary:hover {
+    color: #fff;
+    background-color: #0d6efd;
+}
+
+.badge-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.badge-outline-success:hover {
+    color: #fff;
+    background-color: #198754;
+}
+
+.badge-outline-danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+.badge-outline-warning:hover {
+    color: #000;
+    background-color: #ffc107;
+}
+
+.badge-outline-info:hover {
+    color: #000;
+    background-color: #0dcaf0;
+}
+
+.badge-outline-light:hover {
+    color: #000;
+    background-color: #f8f9fa;
+}
+
+.badge-outline-dark:hover {
+    color: #fff;
+    background-color: #212529;
+}
+
+/* Icon spacing */
+.badge i {
+    line-height: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .badge-lg {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .badge-md {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .badge-sm {
+        padding: 0.125rem 0.375rem;
+        font-size: 0.625rem;
+    }
+}
+
+/* Animation for dynamic badges */
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.badge-animated {
+    animation: badgePulse 2s infinite;
+}
+
+/* Custom utility classes */
+.badge-no-wrap {
+    white-space: nowrap;
+}
+
+.badge-full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+.badge-text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}

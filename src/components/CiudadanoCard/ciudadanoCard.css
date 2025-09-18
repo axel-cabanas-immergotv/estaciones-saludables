@@ -1,0 +1,52 @@
+.ciudadano-card-body {
+    display: inline-flex;
+    background: #e1e1e1;
+    padding: 16px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 500px;
+}
+
+/* Header */
+.ciudadano-card-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ciudadano-card-header .ciudadano-nombre {
+    font-weight: 600;
+}
+
+.ciudadano-voto-status-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.ciudadano-voto-status-color.bg-success {
+    background: linear-gradient(70deg, #25d366 0%, #128c7e 100%);
+}
+.ciudadano-voto-status-color.bg-danger {
+    background: linear-gradient(70deg, #dc3545 0%, #c82333 100%);
+}
+
+/* Info */
+.ciudadano-card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button */
+.ciudadano-voto-button {
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.ml-1 {
+    margin-left: 0.5rem;
+}

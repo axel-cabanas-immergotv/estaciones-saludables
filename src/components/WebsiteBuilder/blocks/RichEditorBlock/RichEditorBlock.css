@@ -1,0 +1,205 @@
+/* RichEditorBlock Styles */
+.rich-editor-block,
+.rich-editor-block-editing {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rich-editor-block .ant-card-head {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.rich-editor-block .ant-card-head-title {
+  color: white;
+  font-weight: 600;
+}
+
+.rich-editor-block .ant-card-extra .ant-btn {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.rich-editor-block .ant-card-extra .ant-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.rich-editor-block-editing .ant-card-head {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.rich-editor-block-editing .ant-card-head-title {
+  color: white;
+  font-weight: 600;
+}
+
+.rich-editor-block-editing .ant-card-extra .ant-btn {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.rich-editor-block-editing .ant-card-extra .ant-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.block-description {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+}
+
+.block-description p {
+  margin: 0;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.rich-content-display {
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rich-content-display .rich-editor-container {
+  box-shadow: none;
+  border: none;
+}
+
+.rich-content-display .ql-toolbar {
+  display: none;
+}
+
+.rich-content-display .ql-container {
+  border: none;
+}
+
+.rich-content-display .ql-editor {
+  padding: 16px;
+  min-height: auto;
+}
+
+/* Form styles */
+.rich-editor-block-editing .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.rich-editor-block-editing .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.rich-editor-block-editing .ant-input,
+.rich-editor-block-editing .ant-input-textarea {
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s;
+}
+
+.rich-editor-block-editing .ant-input:focus,
+.rich-editor-block-editing .ant-input-textarea:focus,
+.rich-editor-block-editing .ant-input:hover,
+.rich-editor-block-editing .ant-input-textarea:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Button styles */
+.rich-editor-block-editing .ant-btn {
+  border-radius: 6px;
+  font-weight: 500;
+  height: 36px;
+  padding: 0 16px;
+}
+
+.rich-editor-block-editing .ant-btn-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.rich-editor-block-editing .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+.rich-editor-block-editing .ant-btn:not(.ant-btn-primary) {
+  border: 1px solid #d9d9d9;
+  color: #666;
+}
+
+.rich-editor-block-editing .ant-btn:not(.ant-btn-primary):hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .rich-editor-block,
+  .rich-editor-block-editing {
+    margin-bottom: 16px;
+  }
+  
+  .rich-editor-block .ant-card-head,
+  .rich-editor-block-editing .ant-card-head {
+    padding: 12px 16px;
+  }
+  
+  .rich-editor-block .ant-card-body,
+  .rich-editor-block-editing .ant-card-body {
+    padding: 16px;
+  }
+  
+  .rich-editor-block-editing .ant-form-item {
+    margin-bottom: 16px;
+  }
+  
+  .rich-editor-block-editing .ant-btn {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+
+/* Animation for editing mode */
+.rich-editor-block-editing {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar for content display */
+.rich-content-display .ql-editor::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rich-content-display .ql-editor::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.rich-content-display .ql-editor::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.rich-content-display .ql-editor::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

@@ -1,0 +1,328 @@
+/* Main styles for public site */
+
+/* Custom variables */
+:root {
+    --primary-color: #007cba;
+    --secondary-color: #667eea;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base styles */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Text alignment utilities (backup in case Bootstrap classes aren't available) */
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+/* Header and footer module styling */
+.header-container {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#footer-container {
+    background: #343a40;
+    color: #fff;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+#footer-container h1,
+#footer-container h2,
+#footer-container h3,
+#footer-container h4,
+#footer-container h5,
+#footer-container h6 {
+    color: #fff;
+}
+
+/* Story content styling */
+.story-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.story-content h1,
+.story-content h2,
+.story-content h3,
+.story-content h4,
+.story-content h5,
+.story-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.story-content p {
+    margin-bottom: 1.5rem;
+}
+
+.story-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.story-content pre {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.story-content code {
+    background: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.story-content pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Stories carousel styling */
+.stories-carousel .card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stories-carousel .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.stories-carousel .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.stories-carousel .card-title a {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.stories-carousel .card-title a:hover {
+    color: var(--primary-color);
+}
+
+/* Navigation menu styling */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Button styles */
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #005a87;
+    border-color: #005a87;
+    transform: translateY(-1px);
+}
+
+/* Loading animations */
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .story-content {
+        font-size: 1rem;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .stories-carousel .card-img-top {
+        height: 150px;
+    }
+}
+
+/* Utility classes */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+/* Card enhancements */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Badge styles */
+.badge {
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Smooth transitions */
+* {
+    transition: box-shadow 0.3s ease;
+}
+
+/* Form styles */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 124, 186, 0.25);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Columns block styles for public view */
+.columns-block {
+    margin: 1.5rem 0;
+}
+
+.columns-grid-container {
+    display: grid;
+    gap: 16px;
+    align-items: start;
+}
+
+.column-item {
+    min-height: 50px;
+    background: transparent;
+}
+
+.column-content {
+    padding: 0;
+}
+
+/* Responsive grid templates will be added dynamically by JavaScript */
+
+/* Column content styling */
+.column-content h1,
+.column-content h2,
+.column-content h3,
+.column-content h4,
+.column-content h5,
+.column-content h6 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.column-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.column-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.column-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+}
+
+.column-content ul,
+.column-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.column-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile optimizations for columns */
+@media (max-width: 767px) {
+    .columns-grid-container {
+        gap: 12px;
+    }
+    
+    .column-item {
+        min-height: 40px;
+    }
+    
+    .column-content h1,
+    .column-content h2,
+    .column-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .column-content h4,
+    .column-content h5,
+    .column-content h6 {
+        font-size: 1.1rem;
+    }
+} 

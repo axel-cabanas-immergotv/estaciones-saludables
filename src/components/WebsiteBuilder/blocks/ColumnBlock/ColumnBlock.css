@@ -1,0 +1,92 @@
+/* Column Block Specific */
+.column-block {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.column-block:hover {
+  border-color: #1890ff;
+}
+
+.column-block.editing {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.column-block .column-content {
+  padding: 16px;
+  min-height: 100px;
+}
+
+.column-block .add-block-section {
+  margin-top: 16px;
+  padding: 16px;
+  border: 2px dashed #d9d9d9;
+  border-radius: 6px;
+  text-align: center;
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.column-block .add-block-section:hover {
+  border-color: #1890ff;
+  background: rgba(24, 144, 255, 0.02);
+}
+
+/* SortableBlock for columns */
+.sortable-column {
+  display: inline-block !important;
+  vertical-align: top;
+  padding-right: 16px;
+  margin-bottom: 16px;
+}
+
+/* Grid System for Columns */
+.canvas {
+  display: block;
+  width: 100%;
+  font-size: 0; /* Remove whitespace between inline-block elements */
+}
+
+/* Column Grid Layout */
+.column-block[style*="width"] {
+  width: 100% !important;
+}
+
+.column-content-container p {
+  color: #333;
+  font-size: 14px;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+  .sortable-column {
+    display: block !important;
+    margin-right: 0;
+  }
+  
+  .canvas {
+    font-size: 14px; /* Restore font size on mobile */
+  }
+  
+  .column-block .column-content {
+    padding: 12px;
+    min-height: 80px;
+  }
+  
+  .column-block .add-block-section {
+    padding: 12px;
+    margin-top: 12px;
+  }
+}
+
+/* Clear fix for grid rows */
+.canvas::after {
+  content: '';
+  display: table;
+  clear: both;
+  font-size: 14px; /* Restore font size after clear */
+}

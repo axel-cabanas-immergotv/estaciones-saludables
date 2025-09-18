@@ -1,0 +1,146 @@
+/* Admin variables */
+:root {
+    --admin-primary: #0073aa;
+    --admin-secondary: #00a0d2;
+    --admin-success: #46b450;
+    --admin-warning: #ffb900;
+    --admin-danger: #dc3232;
+    --admin-dark: #23282d;
+    --admin-light: #f1f1f1;
+    --admin-sidebar-bg: #23282d;
+    --admin-sidebar-text: #a7aaad;
+    --admin-sidebar-hover: #191e23;
+    --admin-content-bg: #f1f1f1;
+    --sidebar-width: 280px;
+    --topbar-height: 56px;
+}
+
+/* Reset and base styles for admin */
+.admin-app {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--admin-content-bg);
+    min-height: 100vh;
+}
+
+/* Admin container layout */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    padding-top: var(--topbar-height);
+}
+
+/* Main content area */
+.admin-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 20px 30px;
+    background: #fff;
+    min-height: calc(100vh - var(--topbar-height));
+    overflow-x: hidden;
+}
+
+/* Content sections */
+.content-section {
+    display: block;
+}
+
+.content-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.content-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #23282d;
+    margin: 0 0 5px 0;
+}
+
+.content-header p {
+    color: #646970;
+    margin: 0;
+    font-size: 14px;
+}
+
+
+
+/* Cards */
+.card {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 15px 20px;
+}
+
+.card-body {
+    padding: 2vw;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .admin-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    .content-header h1 {
+        font-size: 24px;
+    }
+    
+    .content-header {
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile sidebar overlay */
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-sidebar-overlay {
+        display: block;
+    }
+} 

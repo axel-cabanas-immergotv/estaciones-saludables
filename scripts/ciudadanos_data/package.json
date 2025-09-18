@@ -1,0 +1,23 @@
+{
+  "name": "ciudadanos-import",
+  "version": "1.0.0",
+  "description": "Script para importar ciudadanos desde archivos CSV",
+  "main": "import_ciudadanos.js",
+  "scripts": {
+    "test": "node import_ciudadanos.js --test",
+    "import": "node import_ciudadanos.js",
+    "debug": "node debug_config.js"
+  },
+  "keywords": [
+    "ciudadanos",
+    "import",
+    "csv",
+    "database"
+  ],
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.6.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

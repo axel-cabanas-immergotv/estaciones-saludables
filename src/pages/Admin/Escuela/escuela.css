@@ -1,0 +1,147 @@
+/* Estilos para los tags clickeables de fiscales */
+.clickable-tag {
+    transition: all 0.3s ease;
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.clickable-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
+}
+
+.clickable-tag:active {
+    transform: translateY(0);
+}
+
+/* Modal específico para información de fiscales */
+.modal-backdrop.fade.show {
+    opacity: 0.8;
+}
+
+.modal-dialog {
+    z-index: 200000;
+}
+
+.modal.show {
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border-bottom: none;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.card-header h6 {
+    color: #495057;
+    font-weight: 600;
+}
+
+.card-body .mb-2 {
+    padding: 8px 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.card-body .mb-2:last-child {
+    border-bottom: none;
+}
+
+.card-body strong {
+    color: #495057;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-body div:not(.mb-2) {
+    color: #6c757d;
+}
+
+/* Mejorar apariencia de los badges en el modal */
+.badge.bg-info,
+.badge.bg-primary,
+.badge.bg-success {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+
+/* Estilos para el botón de WhatsApp en el modal */
+.btn-success {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+/* Animación de entrada del modal */
+.modal.fade.show .modal-dialog {
+    animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para las filas de la tabla con colores de fondo basados en porcentaje */
+.table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+/* Mejorar contraste del texto en filas con colores de fondo */
+.table tbody tr td {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos específicos para las filas clickeables */
+.table tbody tr.clickable {
+    cursor: pointer;
+}
+
+/* Indicador visual del porcentaje de completitud */
+.percentage-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+

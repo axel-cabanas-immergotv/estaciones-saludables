@@ -1,0 +1,10 @@
+.App {
+  min-height: 100vh;
+}
+
+/* Remove any default margins or padding that might interfere */
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

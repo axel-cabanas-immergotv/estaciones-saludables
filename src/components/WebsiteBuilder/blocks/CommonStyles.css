@@ -1,0 +1,130 @@
+/* Common Block Styles */
+.block-container {
+  position: relative;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.block-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.block-container.editing {
+  border: 2px solid #1890ff;
+  background: rgba(24, 144, 255, 0.02);
+}
+
+.block-container.preview {
+  border: 1px solid transparent;
+}
+
+/* Block Header */
+.block-header {
+  background: #f0f2f5;
+  padding: 8px 12px;
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.block-header .block-type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.block-header .block-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Block Content */
+.block-content {
+  padding: 16px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Settings Panel */
+.settings-panel {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.settings-panel .ant-card-head {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 8px 16px;
+}
+
+.settings-panel .ant-card-body {
+  padding: 16px;
+}
+
+.settings-panel .ant-form-item {
+  margin-bottom: 12px;
+}
+
+.settings-panel .ant-form-item-label {
+  padding-bottom: 4px;
+}
+
+.settings-panel .ant-form-item-label > label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}
+
+/* Drag and Drop Styles */
+.block-container[data-dragging="true"] {
+  opacity: 0.5;
+  transform: rotate(5deg);
+}
+
+.block-container[data-over="true"] {
+  border-color: #1890ff;
+  background: rgba(24, 144, 255, 0.05);
+}
+
+/* Animation Classes */
+.block-container {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .block-container {
+    margin: 4px 0;
+  }
+  
+  .block-content {
+    padding: 12px;
+  }
+  
+  .block-header {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}

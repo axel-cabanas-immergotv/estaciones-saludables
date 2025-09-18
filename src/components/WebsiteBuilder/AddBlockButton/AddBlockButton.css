@@ -1,0 +1,47 @@
+/* AddBlockButton Styles */
+.add-block-button {
+  transition: all 0.2s ease;
+}
+
+.add-block-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-block-button .ant-dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e8e8e8;
+}
+
+.add-block-button .ant-dropdown-menu-item {
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+.add-block-button .ant-dropdown-menu-item:hover {
+  background-color: #f0f2f5;
+}
+
+.add-block-button .ant-dropdown-menu-item .block-icon {
+  font-size: 16px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.add-block-button .ant-dropdown-menu-item .block-label {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-block-button .ant-dropdown-menu {
+    min-width: 200px;
+  }
+  
+  .add-block-button .ant-dropdown-menu-item {
+    padding: 10px 16px;
+  }
+}

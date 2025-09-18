@@ -1,0 +1,101 @@
+/* SortableBlock Styles */
+.sortable-block {
+  position: relative;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sortable-block:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sortable-block:hover .drag-handle {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sortable-block:last-child {
+  margin-bottom: 0;
+}
+
+.drag-handle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+  cursor: grab;
+  padding: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sortable-block:hover .drag-handle {
+  opacity: 1;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.drag-indicator {
+  background: #1890ff;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-size: 10px;
+  font-weight: bold;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  line-height: 1;
+}
+
+.drag-indicator:hover {
+  background: #40a9ff;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+/* Drag and Drop Visual Feedback */
+.sortable-block[data-dragging="true"] {
+  opacity: 0.5;
+  transform: rotate(2deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Drop Zone Indicators */
+.canvas {
+  position: relative;
+}
+
+.canvas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(24, 144, 255, 0.05) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.canvas[data-dragging="true"]::before {
+  opacity: 1;
+}

@@ -1,0 +1,222 @@
+---
+alwaysApply: true
+---
+
+
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Lineas Generales
+
+* No separar en carpetas backend y frontend. Que haya un solo root donde este el backend, y que el frontend este en /dist y en /src respectivamente donde en /dist estara el codigo compilado que se sirve estaticamente desde el backend
+* La extensibilidad del codigo es lo mas importante de todo, ya que la idea es tener control total del sistema para poder extenderlo con nuevos componentes y funcionalidades.
+* La plataforma esta 100% en ingles, pero debe soportar internacionalizacion incluyendo archivos de traduccion.
+* Separar la aplicacion en la ruta / Que mostrara el sitio que estamos construyendo, y /admin que tiene el administrador.
+* Antes de poder entrar al administrador nos debe redirigir a /login si no tenemos un login valido (JWT valido en cookie)
+* Si tenemos acceso para /admin veremos un administrador como el de wordpress donde a la izquierda tenemos:
+
+- Estaciones
+- Activiades
+- Vecinos
+- Usuarios
+- Roles
+- Permisos
+
+# Entidades utilizadas
+
+* Users
+Esta entidad, tienen los siguientes atributos:
+
+- Nombre (String)
+- Apellido (String)
+- DNI (BigInt)
+- Celular (String)
+- Genero
+- Direccion
+- Piso
+- Foto
+- EncargadoDeEscuela (Boolean)
+- fiscal_mesa_id (Relacionado a una mesa)
+- logistica_id (Relacionado a una logistica)
+- fiscal_general_id (Relacionado a una escuela)
+- Last Login
+- Last Action
+- Created At
+- Updated At
+- Created By
+- Updated By
+
+* users_access
+- Esta tabla es solo para relacionar Usuarios segun su alcance.
+Es decir, un usuario puede pertencer a una Localidad (Comuna 1), Circuito (200), o una Escuela (5) Donde cada valor aca es un ejemplo de ID.
+Por tanto esta tabla de relacion tiene varias columnas:
+
+- user_id
+- localidad_id
+- circuito_id
+- escuela_id
+- mesa_id
+
+De esta forma podemos obtener varios niveles de aceso.
+Las multiples filas por user_id que pudiera haber se agregan como si se tratara de OR.
+De manera tal que si tengo:
+user_id: 5
+localidad_id: 1
+
+y otra fila
+
+user_id: 5
+escuela_id:450
+
+Entonces este usuario tiene acceso a la localidad de id 1, y a la escuela de id 450. Tengamos en cuenta que el hecho de acceder a localidad 1, implica que esto le da acceso a todos los circuitos de localidad_id 1, y a todas las escuelas que pertenezcan a dichos circuitos.
+
+
+* localidad
+- nombre (string)
+
+* seccion
+- numero (String)
+
+* circuito
+- seccion_id
+- localidad_id (Relacion con la Localidad a la que pertenece)
+- nombre (string)
+
+* escuela
+- circuito_id (El circuito al que pertenece)
+- Nombre (string)
+- Calle (String)
+- Altura (String)
+- Lat
+- Lon
+- Dificultad (string)
+- abierto (boolean)
+
+* mesa
+- numero (Cada mesa tiene un numero, Entero)
+- mesa_testigo (boolean)
+- mesa_extranjeros (boolean)
+- mesa_abrio (boolean)
+- acta_de_escrutinio (File URL to S3)
+- certificado_de_escrutinio (File URL to S3)
+
+* ciudadano
+- Nombre
+- Apellido
+- DNI
+- mesa_id (El ID de la mesa donde vota)
+- Nacionalidad
+- Genero
+- Domiciolio
+- Codigo Postal
+- numero_orden
+
+
+El listado de relaciones es el siguiente:
+
+Ciudadano -> Mesa -> Escuela -> Circuito -> Localidad
+
+y
+
+Ciudadano -> Mesa -> Escuela -> Circuito -> Seccion
+
+* Localidad no es una division exactamente electoral. Pero sirve con fines de division politica.
+
+Muchos ciudadanos votan en una mesa.
+Muchas mesas pertencen a una escuela.
+Muchas escuelas pertenecen a un Circuito.
+Muchos Circuitos pertenecen a una Localidad.
+
+Crear los modelos requeridos en /models/ con los respectivos Modelos enumerados anteriormente por sequelize incluyendo las tablas intermedias para crear las relaciones.
+
+
+# Separacion de los archivos del frontend
+
+* Identificar componentes en comun como las tablas que listen instancias de entities (Users, Comunas, Circuitos, Escuelas, Logisticas, Ejes, Mesas, Ciudadanos) y reutilizar todo lo posible haciendolo altamente mediante el componente EntityTable que es lo que se utiliza como base para representar a las entidades.
+
+Utilizar Los modelos de frontend existentes como referencias.
+
+
+* `Affiliates` es una entidad relacional que conecta todo el contenido del sistema. Stories, Pages, Users, Roles, Permissions, etc., deben tener un `affiliate_id`. Los datos visibles en el admin siempre corresponden al affiliate actualmente seleccionado (mediante dropdown en la navbar del admin).
+La llamamos en este sistema como "Afiliados"
+
+* Affiliates tienen una relación muchos-a-muchos. Si el Affiliate A está relacionado con B y C, entonces debe ver el contenido de todos ellos al consultar. El contenido nuevo se crea siempre para el affiliate actualmente seleccionado.
+
+* Roles de los usuarios:
+
+Queremos este listado de roles:
+
+Admin
+Jefe de Campaña
+Responsable de Localidad
+Responsable de Seccion
+Responsable de Circuito
+Fiscal General
+Fiscal de Mesa
+Logistica
+
+Donde cada uno va a tener los permisos para crear un usuario con los roles por debajo. Es decir:
+
+Jefe de Campaña: Puede Leer todo, pero no puede actualizar nada.
+Puede crear Usuarios. Todos los roles que tiene disponible estan por debajo, osea solo puede crear:
+- Responsable de Localidad
+- Responsable de Seccion
+- Responsable de Circuito
+- Fiscal General
+- Fiscal de Mesa
+- Logistica
+
+Responsable de Localidad
+Solo Puede crear Usuarios. Todos los roles que tiene disponible estan por debajo, osea solo puede crear:
+
+- Responsable de Seccion
+- Responsable de Circuito
+- Fiscal General
+- Fiscal de Mesa
+- Logistica
+
+Responsable de Seccion
+Solo Puede crear Usuarios. Todos los roles que tiene disponible estan por debajo, osea solo puede crear:
+
+- Responsable de Circuito
+- Fiscal General
+- Fiscal de Mesa
+- Logistica
+
+Responsable de Circuito
+Solo Puede crear Usuarios. Todos los roles que tiene disponible estan por debajo, osea solo puede crear:
+
+- Fiscal General
+- Fiscal de Mesa
+- Logistica
+
+Fiscal General
+Solo Puede crear Usuarios. Todos los roles que tiene disponible estan por debajo, osea solo puede crear:
+
+- Fiscal de Mesa
+- Logistica
+
+
+Fiscal de Mesa
+Por ahora sin permisos para nada.
+
+## Sobre el acceso de los usuarios a los recursos
+
+* Si bien todas las entidades propias de terriotorio son cross affiliates (No tienen affiliates, es decir son vistas por todos) Los usuarios si tenen limitaciones de territorio.
+
+* Por ejemplo, un Jefe de campaña estara limitado al acceso de las localidades que tiene su teatro de operaciones
+
+* Un responsable de localidad, tendra acceso a la localidad asignada y a sus secciones y escuelas (Que pueden ser de otra localidad tambien).
+
+* Un Fiscal General solo tendra acceso a su escuela.
+
+Esto significa y aplica a que desde su maximo nivel de acceso, solo pueden ver hacia abajo en el arbol de relaciones.
+
+Para conseguir eso instrumentamos la tabla user_access.
+Esta tabla, tiene localidad_id, circuito_id, escuela_id, mesa_id, y finalmente user_id
+
+De manera tal de poder restringir a los usuarios al acceso que corresponde.
+

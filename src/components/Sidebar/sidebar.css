@@ -1,0 +1,102 @@
+/* Sidebar variables */
+:root {
+    --admin-primary: #0073aa;
+    --admin-secondary: #00a0d2;
+    --admin-dark: #23282d;
+    --admin-sidebar-bg: #23282d;
+    --admin-sidebar-text: #a7aaad;
+    --admin-sidebar-hover: #191e23;
+    --sidebar-width: 280px;
+    --topbar-height: 56px;
+}
+
+/* Sidebar styles */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--admin-sidebar-bg);
+    color: var(--admin-sidebar-text);
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    height: calc(100vh - var(--topbar-height));
+    overflow-y: auto;
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-sidebar::-webkit-scrollbar-track {
+    background: var(--admin-sidebar-bg);
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+/* Sidebar sections */
+.sidebar-section {
+    border-bottom: 1px solid #32373c;
+    padding: 0;
+}
+
+.sidebar-header {
+    color: #999;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px 20px 10px;
+    margin: 0;
+    background: rgba(0,0,0,0.1);
+}
+
+/* Sidebar items */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--admin-sidebar-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+}
+
+.sidebar-item:hover {
+    background: var(--admin-sidebar-hover);
+    color: #00b9eb;
+    text-decoration: none;
+}
+
+.sidebar-item.active {
+    background: var(--admin-sidebar-hover);
+    color: #fff;
+    border-left-color: #00b9eb;
+}
+
+.sidebar-item i {
+    width: 20px;
+    margin-right: 12px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sidebar-item span {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Mobile sidebar */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .admin-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+} 

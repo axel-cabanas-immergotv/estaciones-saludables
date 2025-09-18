@@ -1,0 +1,194 @@
+/* Admin variables */
+:root {
+    --admin-primary: #0073aa;
+    --admin-secondary: #00a0d2;
+    --admin-success: #46b450;
+    --admin-warning: #ffb900;
+    --admin-danger: #dc3232;
+    --admin-dark: #23282d;
+    --admin-light: #f1f1f1;
+    --admin-sidebar-bg: #23282d;
+    --admin-sidebar-text: #a7aaad;
+    --admin-sidebar-hover: #191e23;
+    --admin-content-bg: #f1f1f1;
+    --sidebar-width: 280px;
+    --topbar-height: 56px;
+}
+
+.user-access-levels {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.access-section {
+    border: 1px solid #e9ecef;
+}
+
+.access-section-header {
+    background: #f8f9fa;
+    color: #212529;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.access-section-header i {
+    font-size: 1.2rem;
+    color: var(--admin-primary);
+}
+
+.access-count {
+    background: var(--admin-primary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin-left: auto;
+}
+
+.access-content {
+    padding: 0;
+}
+
+.access-type-group {
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.access-type-group:last-child {
+    border-bottom: none;
+}
+
+.access-type-header {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+}
+
+.access-type-header:hover {
+    background: #e9ecef;
+    border-left-color: var(--admin-primary);
+}
+
+.access-type-header i:last-child {
+    transition: transform 0.2s ease;
+}
+
+.access-type-content {
+    background: #fff;
+    padding: 0 20px 15px 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.access-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f8f9fa;
+    transition: all 0.2s ease;
+}
+
+.access-item:last-child {
+    border-bottom: none;
+}
+
+.access-item:hover {
+    background: #f8f9fa;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.access-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.access-icon {
+    color: var(--admin-primary);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.access-name {
+    font-weight: 500;
+    color: #212529;
+    flex: 1;
+}
+
+.access-type-badge {
+    background: var(--admin-primary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.access-details {
+    margin-left: 30px;
+    color: #6c757d;
+}
+
+.no-access-message {
+    padding: 30px 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.no-access-message p {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Animation for expanding/collapsing */
+.access-type-content {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+        overflow: visible;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .access-section-header {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    .access-type-header {
+        padding: 12px 15px;
+    }
+    
+    .access-type-content {
+        padding: 0 15px 12px 15px;
+    }
+    
+    .access-item:hover {
+        margin: 0 -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

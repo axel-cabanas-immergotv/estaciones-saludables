@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RichEditor Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-title {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .test-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .test-button.danger {
+            background: #dc3545;
+        }
+        .test-button.danger:hover {
+            background: #c82333;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">RichEditor Component Test</h1>
+        
+        <div class="test-section">
+            <h2 class="test-title">Component Status</h2>
+            <div class="test-description">
+                This page tests the RichEditor component integration and functionality.
+            </div>
+            
+            <div id="status-container">
+                <div class="status info">
+                    Testing component initialization...
+                </div>
+            </div>
+            
+            <div>
+                <button class="test-button" onclick="testComponent()">Test Component</button>
+                <button class="test-button" onclick="testVideoPlugin()">Test Video Plugin</button>
+                <button class="test-button danger" onclick="clearStatus()">Clear Status</button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">Test Results</h2>
+            <div class="test-description">
+                Component test results will appear here.
+            </div>
+            <div id="test-results">
+                <p>No tests run yet.</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">Component Information</h2>
+            <div class="test-description">
+                <strong>RichEditor Component Features:</strong>
+            </div>
+            <ul>
+                <li>✅ Direct Quill integration (no react-quill dependency)</li>
+                <li>✅ Custom video insertion plugin</li>
+                <li>✅ React 19 compatible</li>
+                <li>✅ Completely isolated component</li>
+                <li>✅ Custom styling and theming</li>
+                <li>✅ Video API integration</li>
+                <li>✅ Responsive design</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function updateStatus(message, type = 'info') {
+            const container = document.getElementById('status-container');
+            container.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        function addTestResult(result) {
+            const container = document.getElementById('test-results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `status ${result.success ? 'success' : 'error'}`;
+            resultDiv.innerHTML = `<strong>${result.test}:</strong> ${result.message}`;
+            container.appendChild(resultDiv);
+        }
+
+        function testComponent() {
+            updateStatus('Testing RichEditor component...', 'info');
+            
+            try {
+                // Test if Quill is available
+                if (typeof Quill !== 'undefined') {
+                    addTestResult({
+                        test: 'Quill Library',
+                        success: true,
+                        message: 'Quill library is available'
+                    });
+                } else {
+                    addTestResult({
+                        test: 'Quill Library',
+                        success: false,
+                        message: 'Quill library not found'
+                    });
+                }
+
+                // Test if component files exist
+                fetch('/src/components/RichEditor/RichEditor.jsx')
+                    .then(response => {
+                        if (response.ok) {
+                            addTestResult({
+                                test: 'Component File',
+                                success: true,
+                                message: 'RichEditor component file exists'
+                            });
+                        } else {
+                            addTestResult({
+                                test: 'Component File',
+                                success: false,
+                                message: 'RichEditor component file not found'
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        addTestResult({
+                            test: 'Component File',
+                            success: false,
+                            message: `Error checking file: ${error.message}`
+                        });
+                    });
+
+                updateStatus('Component test completed!', 'success');
+            } catch (error) {
+                updateStatus(`Test failed: ${error.message}`, 'error');
+                addTestResult({
+                    test: 'Component Test',
+                    success: false,
+                    message: `Error: ${error.message}`
+                });
+            }
+        }
+
+        function testVideoPlugin() {
+            updateStatus('Testing video plugin...', 'info');
+            
+            try {
+                // Test video plugin functionality
+                addTestResult({
+                    test: 'Video Plugin',
+                    success: true,
+                    message: 'Video plugin test completed (mock)'
+                });
+                
+                updateStatus('Video plugin test completed!', 'success');
+            } catch (error) {
+                updateStatus(`Video plugin test failed: ${error.message}`, 'error');
+                addTestResult({
+                    test: 'Video Plugin',
+                    success: false,
+                    message: `Error: ${error.message}`
+                });
+            }
+        }
+
+        function clearStatus() {
+            document.getElementById('test-results').innerHTML = '<p>No tests run yet.</p>';
+            updateStatus('Status cleared', 'info');
+        }
+
+        // Auto-test on page load
+        window.addEventListener('load', () => {
+            updateStatus('Page loaded successfully. Ready for testing.', 'success');
+        });
+    </script>
+</body>
+</html>

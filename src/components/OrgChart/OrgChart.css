@@ -1,0 +1,227 @@
+.org-chart-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.org-chart-controls {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.org-chart-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.org-chart-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.org-chart-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.zoom-level {
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* D3.js specific styles */
+.d3-orgchart {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.d3-link {
+    fill: none;
+    stroke: #6c757d;
+    stroke-width: 2;
+    opacity: 0.7;
+}
+
+.d3-node-rect {
+    fill: #fff;
+    stroke: #dee2e6;
+    stroke-width: 2;
+    transition: all 0.2s ease;
+}
+
+.d3-node-rect:hover {
+    stroke: #007bff;
+    stroke-width: 3;
+    filter: drop-shadow(0 2px 4px rgba(0, 123, 255, 0.2));
+}
+
+.d3-node-name {
+    font-size: 14px;
+    font-weight: 600;
+    fill: #212529;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.d3-node-role {
+    font-size: 12px;
+    fill: #6c757d;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.d3-node-assignment {
+    font-size: 11px;
+    fill: #495057;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-style: italic;
+}
+
+.d3-expand-btn {
+    transition: all 0.2s ease;
+}
+
+.d3-expand-btn:hover {
+    transform: scale(1.1);
+}
+
+.d3-expand-btn circle {
+    transition: all 0.2s ease;
+}
+
+.d3-expand-btn:hover circle {
+    fill: #0056b3;
+    filter: drop-shadow(0 2px 4px rgba(33, 150, 243, 0.3));
+}
+
+/* Node type specific styles */
+.current-node .d3-node-rect {
+    fill: #e3f2fd;
+    stroke: #2196f3;
+}
+
+.superior-node .d3-node-rect {
+    fill: #f3e5f5;
+    stroke: #9c27b0;
+}
+
+.subordinate-node .d3-node-rect {
+    fill: #e8f5e8;
+    stroke: #4caf50;
+}
+
+.sibling-node .d3-node-rect {
+    fill: #fff3e0;
+    stroke: #ff9800;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .org-chart-controls {
+        padding: 10px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .org-chart-controls button {
+        margin-bottom: 5px;
+    }
+    
+    .zoom-level {
+        text-align: center;
+        margin-top: 5px;
+    }
+}
+
+/* Legend styles */
+.org-chart-legend {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-radius: 0 0 8px 8px;
+}
+
+.legend-title {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #495057;
+    text-align: center;
+}
+
+.legend-items {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid;
+}
+
+.current-node-color {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.superior-node-color {
+    background-color: #f3e5f5;
+    border-color: #9c27b0;
+}
+
+.subordinate-node-color {
+    background-color: #e8f5e8;
+    border-color: #4caf50;
+}
+
+.sibling-node-color {
+    background-color: #fff3e0;
+    border-color: #ff9800;
+}
+
+.legend-label {
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Responsive legend */
+@media (max-width: 768px) {
+    .org-chart-legend {
+        padding: 15px;
+    }
+    
+    .legend-items {
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .legend-item {
+        min-width: 120px;
+        justify-content: center;
+    }
+}

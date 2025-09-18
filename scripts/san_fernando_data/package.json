@@ -1,0 +1,21 @@
+{
+  "name": "san-fernando-import",
+  "version": "1.0.0",
+  "description": "Script para importar datos de San Fernando desde archivos CSV",
+  "main": "import_san_fernando.js",
+  "scripts": {
+    "import": "node import_san_fernando.js",
+    "start": "node import_san_fernando.js"
+  },
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  },
+  "keywords": [
+    "import",
+    "csv",
+    "database",
+    "san-fernando"
+  ],
+  "author": "Fisca Web React",
+  "license": "MIT"
+}
