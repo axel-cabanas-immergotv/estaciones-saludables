@@ -18,6 +18,7 @@ const Sidebar = ({
     const getVisibleItemsForRole = (roleName) => {
         const roleVisibility = {
             'admin': [
+                'inicio',
                 'mi-equipo',
                 'estaciones',
                 'actividades',
@@ -37,6 +38,14 @@ const Sidebar = ({
     const visibleSections = userRole?.name ? getVisibleItemsForRole(userRole.name) : [];
 
     const sidebarItems = [
+        // Inicio
+        {
+            section: 'inicio',
+            icon: 'fas fa-home',
+            label: 'Inicio',
+            standalone: true
+        },
+        
         // Mi Equipo
         // {
         //     section: 'mi-equipo',
