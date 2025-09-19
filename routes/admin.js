@@ -16,6 +16,8 @@ const escuelasRouter = require('./admin/escuelas');
 const mesasRouter = require('./admin/mesas');
 const ciudadanosRouter = require('./admin/ciudadanos');
 const seccionRouter = require('./admin/seccion');
+const estacionesRouter = require('./admin/estaciones');
+const actividadesRouter = require('./admin/actividades');
 const router = express.Router();
 
 // Apply authentication to all admin routes
@@ -376,5 +378,7 @@ router.use('/escuelas', escuelasRouter);
 router.use('/mesas', mesasRouter);
 router.use('/ciudadanos', ciudadanosRouter);
 router.use('/seccion', seccionRouter);
+router.use('/estaciones', estacionesRouter);
+router.use('/actividades', actividadesRouter);
 
 module.exports = router;

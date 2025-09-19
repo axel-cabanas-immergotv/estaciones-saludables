@@ -1,34 +1,28 @@
-# Migraciones del Sistema Fisca
+# Migraciones del Sistema Estaciones Saludables
 
-Este directorio contiene las migraciones de base de datos para el sistema Fisca.
+Este directorio contiene las migraciones de base de datos para el sistema Estaciones Saludables.
 
-## Migración Inicial (001_initial_setup.js)
+## Migración Inicial (001_estaciones_saludables_initial_setup.js)
 
 Esta migración configura el sistema inicial con:
 
-### 1. Roles del Sistema
-- **Admin**: Acceso completo a todo el sistema
-- **Jefe de Campaña**: Puede leer todo y crear usuarios con roles inferiores
-- **Responsable de Localidad**: Puede crear usuarios con roles inferiores
-- **Responsable de Sección**: Puede crear usuarios con roles inferiores
-- **Responsable de Circuito**: Puede crear usuarios con roles inferiores
-- **Fiscal General**: Puede crear usuarios con roles inferiores
-- **Fiscal de Mesa**: Solo permisos de lectura básicos
-- **Logística**: Solo permisos de lectura básicos
+### 1. Rol del Sistema
+- **Admin**: Acceso completo a todo el sistema de Estaciones Saludables
 
 ### 2. Permisos del Sistema
 Se crean permisos CRUD para todas las entidades:
-- Users, Affiliates, Localidades, Secciones, Circuitos, Escuelas, Mesas, Ciudadanos, Roles, Permissions
+- Estaciones, Actividades, Ciudadanos, Usuarios, Roles, Permisos
 
 ### 3. Usuario Administrador
-- **Email**: admin@fisca.com
+- **Email**: admin@estaciones-saludables.com
 - **Password**: 123456
 - **Rol**: Admin (acceso completo)
 
-### 4. Affiliate Inicial
-- **Nombre**: LLA
-- **Slug**: lla
-- **Descripción**: Affiliate inicial del sistema
+### 4. Entidades del Sistema
+- **Estaciones**: Ubicaciones físicas donde se realizan actividades
+- **Actividades**: Programas y clases ofrecidas en las estaciones
+- **Ciudadanos**: Personas registradas en el sistema
+- **Asistentes**: Relación entre ciudadanos y actividades
 
 ## Cómo Ejecutar
 

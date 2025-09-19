@@ -16,6 +16,7 @@ import MesaPage from './pages/Admin/Mesa';
 import CiudadanoPage from './pages/Admin/Ciudadano';
 import { AffiliateProvider } from './contexts/AffiliateContext';
 import './App.css';
+import EstacionesPage from './pages/Admin/Estaciones';
 
 // Error Boundary Component to prevent white screen
 class ErrorBoundary extends React.Component {
@@ -144,13 +145,13 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Admin />}>
-              <Route index element={<Navigate to="/admin/mi-equipo" replace />} />
+              <Route index element={<Navigate to="/admin/estaciones" replace />} />
               <Route path="mi-equipo" element={<MiEquipoPage />} />
               <Route path="users" element={<UsersPage />} />
               <Route path="roles" element={<RolesPage />} />
               <Route path="permissions" element={<PermissionsPage />} />
               <Route path="affiliates" element={<AffiliatesPage />} />
-              <Route path="estacion" element={<LocalidadPage />} />
+              <Route path="estaciones" element={<EstacionesPage />} />
               <Route path="seccion" element={<SeccionPage />} />
               <Route path="actividades" element={<ActividadesPage />} />
               <Route path="circuito" element={<CircuitoPage />} />

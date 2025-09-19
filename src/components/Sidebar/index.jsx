@@ -19,17 +19,13 @@ const Sidebar = ({
         const roleVisibility = {
             'admin': [
                 'mi-equipo',
-                'estacion',
-                'seccion', 
-                'circuito',
-                'escuela',
-                'mesa',
+                'estaciones',
+                'actividades',
                 'ciudadanos',
+                'asistentes',
                 'users',
                 'roles',
                 'permissions',
-                'affiliates',
-                'actividades'
             ],
             // To do: implementar roles
         };
@@ -42,21 +38,22 @@ const Sidebar = ({
 
     const sidebarItems = [
         // Mi Equipo
-        {
-            section: 'mi-equipo',
-            icon: 'fas fa-users-alt',
-            label: 'Mi Equipo',
-            standalone: true
-        },
+        // {
+        //     section: 'mi-equipo',
+        //     icon: 'fas fa-users-alt',
+        //     label: 'Mi Equipo',
+        //     standalone: true
+        // },
         
         // Content Section
         {
             group: 'Territorio',
             items: [
               {
-                section: 'estacion',
+                section: 'estaciones',
                 icon: 'fas fa-map-marked-alt',
-                label: 'Estaciones'
+                label: 'Estaciones',
+                standalone: true
               },
               {
                 section: 'actividades',

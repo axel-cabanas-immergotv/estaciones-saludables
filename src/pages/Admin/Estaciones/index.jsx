@@ -155,8 +155,12 @@ const EstacionesPage = () => {
             {
                 header: 'Estación',
                 field: 'nombre',
-                type: 'text-with-subtitle',
-                subtitleField: 'direccion'
+                type: 'text',
+            },
+            {
+                header: 'Dirección',
+                field: 'direccion',
+                type: 'text'
             },
             {
                 header: 'Coordenadas',
@@ -285,7 +289,7 @@ const EstacionesPage = () => {
         <div className="content-section">
             <ContentHeader
                 icon='fas fa-map-marked-alt'
-                title='Estaciones asdads'
+                title='Estaciones'
                 description='Estaciones'
                 handleCreateNew={handleCreateNew}
                 buttonText='Agregar Estación'

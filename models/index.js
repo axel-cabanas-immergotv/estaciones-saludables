@@ -57,16 +57,19 @@ const Permission = require('./Permission')(sequelize);
 
 const File = require('./File')(sequelize);
 
-const Affiliate = require('./Affiliate')(sequelize);
-const UserAffiliate = require('./UserAffiliate')(sequelize);
-const AffiliateMember = require('./AffiliateMember')(sequelize);
-const Localidad = require('./Localidad')(sequelize);
-const Seccion = require('./Seccion')(sequelize);
-const Circuito = require('./Circuito')(sequelize);
-const Escuela = require('./Escuela')(sequelize);
-const Mesa = require('./Mesa')(sequelize);
+// const Affiliate = require('./Affiliate')(sequelize);
+// const UserAffiliate = require('./UserAffiliate')(sequelize);
+// const AffiliateMember = require('./AffiliateMember')(sequelize);
+// const Localidad = require('./Localidad')(sequelize);
+// const Seccion = require('./Seccion')(sequelize);
+// const Circuito = require('./Circuito')(sequelize);
+// const Escuela = require('./Escuela')(sequelize);
+// const Mesa = require('./Mesa')(sequelize);
 const Ciudadano = require('./Ciudadano')(sequelize);
-const UserAccess = require('./UserAccess')(sequelize);
+// const UserAccess = require('./UserAccess')(sequelize);
+const Estacion = require('./Estacion')(sequelize);
+const Actividad = require('./Actividad')(sequelize);
+const Asistente = require('./Asistente')(sequelize);
 
 // Define associations
 User.belongsTo(Role, { foreignKey: 'role_id', as: 'role' });
@@ -102,86 +105,90 @@ User.hasMany(File, { foreignKey: 'user_id', as: 'uploaded_files' });
 
 
 // Affiliate associations
-User.belongsToMany(Affiliate, { 
-  through: UserAffiliate, 
-  foreignKey: 'user_id',
-  otherKey: 'affiliate_id',
-  as: 'affiliates'
-});
-Affiliate.belongsToMany(User, { 
-  through: UserAffiliate, 
-  foreignKey: 'affiliate_id',
-  otherKey: 'user_id',
-  as: 'users'
-});
+// User.belongsToMany(Affiliate, { 
+//   through: UserAffiliate, 
+//   foreignKey: 'user_id',
+//   otherKey: 'affiliate_id',
+//   as: 'affiliates'
+// });
+// Affiliate.belongsToMany(User, { 
+//   through: UserAffiliate, 
+//   foreignKey: 'affiliate_id',
+//   otherKey: 'user_id',
+//   as: 'users'
+// });
 
 // Direct associations for UserAffiliate
-UserAffiliate.belongsTo(Affiliate, { foreignKey: 'affiliate_id', as: 'affiliate' });
-UserAffiliate.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+// UserAffiliate.belongsTo(Affiliate, { foreignKey: 'affiliate_id', as: 'affiliate' });
+// UserAffiliate.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 
-// Affiliate member relationships (hierarchical structure)
-Affiliate.belongsToMany(Affiliate, {
-  through: AffiliateMember,
-  foreignKey: 'from_affiliate_id',
-  otherKey: 'to_affiliate_id',
-  as: 'members'
-});
-Affiliate.belongsToMany(Affiliate, {
-  through: AffiliateMember,
-  foreignKey: 'to_affiliate_id',
-  otherKey: 'from_affiliate_id',
-  as: 'parent_affiliates'
-});
+// // Affiliate member relationships (hierarchical structure)
+// Affiliate.belongsToMany(Affiliate, {
+//   through: AffiliateMember,
+//   foreignKey: 'from_affiliate_id',
+//   otherKey: 'to_affiliate_id',
+//   as: 'members'
+// });
+// Affiliate.belongsToMany(Affiliate, {
+//   through: AffiliateMember,
+//   foreignKey: 'to_affiliate_id',
+//   otherKey: 'from_affiliate_id',
+//   as: 'parent_affiliates'
+// });
 
 // Direct associations for AffiliateMember
-AffiliateMember.belongsTo(Affiliate, { foreignKey: 'from_affiliate_id', as: 'from_affiliate' });
-AffiliateMember.belongsTo(Affiliate, { foreignKey: 'to_affiliate_id', as: 'to_affiliate' });
+// AffiliateMember.belongsTo(Affiliate, { foreignKey: 'from_affiliate_id', as: 'from_affiliate' });
+// AffiliateMember.belongsTo(Affiliate, { foreignKey: 'to_affiliate_id', as: 'to_affiliate' });
 
-// Fiscal Pro entities relationships
-Circuito.belongsTo(Localidad, { foreignKey: 'localidad_id', as: 'localidad' });
-Localidad.hasMany(Circuito, { foreignKey: 'localidad_id', as: 'circuitos' });
+// // Fiscal Pro entities relationships
+// Circuito.belongsTo(Localidad, { foreignKey: 'localidad_id', as: 'localidad' });
+// Localidad.hasMany(Circuito, { foreignKey: 'localidad_id', as: 'circuitos' });
 
-Escuela.belongsTo(Circuito, { foreignKey: 'circuito_id', as: 'circuito' });
-Circuito.hasMany(Escuela, { foreignKey: 'circuito_id', as: 'escuelas' });
+// Escuela.belongsTo(Circuito, { foreignKey: 'circuito_id', as: 'circuito' });
+// Circuito.hasMany(Escuela, { foreignKey: 'circuito_id', as: 'escuelas' });
 
-Mesa.belongsTo(Escuela, { foreignKey: 'escuela_id', as: 'escuela' });
-Escuela.hasMany(Mesa, { foreignKey: 'escuela_id', as: 'mesas' });
+// Mesa.belongsTo(Escuela, { foreignKey: 'escuela_id', as: 'escuela' });
+// Escuela.hasMany(Mesa, { foreignKey: 'escuela_id', as: 'mesas' });
 
-Ciudadano.belongsTo(Mesa, { foreignKey: 'mesa_id', as: 'mesa' });
-Mesa.hasMany(Ciudadano, { foreignKey: 'mesa_id', as: 'ciudadanos' });
+// Ciudadano.belongsTo(Mesa, { foreignKey: 'mesa_id', as: 'mesa' });
+// Mesa.hasMany(Ciudadano, { foreignKey: 'mesa_id', as: 'ciudadanos' });
 
 // UserAccess associations
-User.hasMany(UserAccess, { foreignKey: 'user_id', as: 'access_assignments' });
-UserAccess.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+// User.hasMany(UserAccess, { foreignKey: 'user_id', as: 'access_assignments' });
+// UserAccess.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 
-UserAccess.belongsTo(Localidad, { foreignKey: 'localidad_id', as: 'localidad' });
-Localidad.hasMany(UserAccess, { foreignKey: 'localidad_id', as: 'user_assignments' });
+// UserAccess.belongsTo(Localidad, { foreignKey: 'localidad_id', as: 'localidad' });
+// Localidad.hasMany(UserAccess, { foreignKey: 'localidad_id', as: 'user_assignments' });
 
-UserAccess.belongsTo(Circuito, { foreignKey: 'circuito_id', as: 'circuito' });
-Circuito.hasMany(UserAccess, { foreignKey: 'circuito_id', as: 'user_assignments' });
+// UserAccess.belongsTo(Circuito, { foreignKey: 'circuito_id', as: 'circuito' });
+// Circuito.hasMany(UserAccess, { foreignKey: 'circuito_id', as: 'user_assignments' });
 
-UserAccess.belongsTo(Escuela, { foreignKey: 'escuela_id', as: 'escuela' });
-Escuela.hasMany(UserAccess, { foreignKey: 'escuela_id', as: 'user_assignments' });
+// UserAccess.belongsTo(Escuela, { foreignKey: 'escuela_id', as: 'escuela' });
+// Escuela.hasMany(UserAccess, { foreignKey: 'escuela_id', as: 'user_assignments' });
 
-UserAccess.belongsTo(Mesa, { foreignKey: 'mesa_id', as: 'mesa' });
-Mesa.hasMany(UserAccess, { foreignKey: 'mesa_id', as: 'user_assignments' });
+// UserAccess.belongsTo(Mesa, { foreignKey: 'mesa_id', as: 'mesa' });
+// Mesa.hasMany(UserAccess, { foreignKey: 'mesa_id', as: 'user_assignments' });
+
+// Estaciones.belongsTo(Localidad, { foreignKey: 'localidad_id', as: 'localidad' });
+// Localidad.hasMany(Estaciones, { foreignKey: 'localidad_id', as: 'estaciones' });
+
+Actividad.belongsTo(Estacion, { foreignKey: 'estacion_id', as: 'estacion' });
+Estacion.hasMany(Actividad, { foreignKey: 'estacion_id', as: 'actividades' });
+
+Asistente.belongsTo(Ciudadano, { foreignKey: 'ciudadano_id', as: 'ciudadano' });
+Ciudadano.hasMany(Asistente, { foreignKey: 'ciudadano_id', as: 'asistentes' });
+
+Asistente.belongsTo(Actividad, { foreignKey: 'actividad_id', as: 'actividad' });
+Actividad.hasMany(Asistente, { foreignKey: 'actividad_id', as: 'asistentes' });
 
 module.exports = {
   sequelize,
   User,
   Role,
   Permission,
-
-  File,
-
-  Affiliate,
-  UserAffiliate,
-  AffiliateMember,
-  Localidad,
-  Seccion,
-  Circuito,
-  Escuela,
-  Mesa,
   Ciudadano,
-  UserAccess
+  File,
+  Estacion,
+  Actividad,
+  Asistente
 }; 

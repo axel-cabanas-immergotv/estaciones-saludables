@@ -7,15 +7,6 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true
     },
-    mesa_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'mesas',
-        key: 'id'
-      },
-      comment: 'El ID de la mesa donde vota'
-    },
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -57,11 +48,6 @@ module.exports = (sequelize) => {
       allowNull: true,
       comment: 'Número de orden en la mesa'
     },
-    voto: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      comment: 'Si el ciudadano ya votó'
-    },
     status: {
       type: DataTypes.ENUM('active', 'inactive'),
       defaultValue: 'active'
@@ -69,9 +55,6 @@ module.exports = (sequelize) => {
   }, {
     tableName: 'ciudadanos',
     indexes: [
-      {
-        fields: ['mesa_id']
-      },
       {
         unique: true,
         fields: ['dni']
@@ -87,9 +70,6 @@ module.exports = (sequelize) => {
       },
       {
         fields: ['nacionalidad']
-      },
-      {
-        fields: ['voto']
       },
       {
         fields: ['status']

@@ -4,7 +4,7 @@
 require('dotenv').config();
 
 /**
- * Script para ejecutar la migración inicial del sistema Fisca
+ * Script para ejecutar la migración inicial del sistema Estaciones Saludables
  * 
  * Uso:
  *   node migrations/run-migration.js                    # Ejecutar migración normal
@@ -15,7 +15,7 @@ require('dotenv').config();
  */
 
 const { sequelize } = require('../models');
-const migration = require('./001_initial_setup');
+const migration = require('./001_estaciones_saludables_initial_setup');
 
 async function runMigration() {
   const args = process.argv.slice(2);
@@ -50,11 +50,10 @@ async function runMigration() {
     
     console.log('\n📋 Resumen:');
     if (!isRollback) {
-      console.log('   • Roles del sistema creados');
-      console.log('   • Permisos del sistema configurados');
-      console.log('   • Usuario admin creado (admin@fisca.com / 123456)');
-      console.log('   • Affiliate LLA creado');
-      console.log('   • Asociaciones de roles y permisos establecidas');
+      console.log('   • Rol de administrador creado');
+      console.log('   • Permisos CRUD para todas las entidades configurados');
+      console.log('   • Usuario admin creado (admin@estaciones-saludables.com / 123456)');
+      console.log('   • Sistema listo para gestionar Estaciones Saludables');
     } else {
       console.log('   • Todos los datos de la migración han sido eliminados');
     }
@@ -85,7 +84,7 @@ async function checkDatabase() {
 
 // Función principal
 async function main() {
-  console.log('🚀 Sistema Fisca - Migración Inicial\n');
+  console.log('🚀 Sistema Estaciones Saludables - Migración Inicial\n');
   
   if (!(await checkDatabase())) {
     process.exit(1);
